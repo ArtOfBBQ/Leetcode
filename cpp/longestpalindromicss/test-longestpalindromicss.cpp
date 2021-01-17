@@ -27,26 +27,26 @@
 // Test the private method 'longest_pal_radius' of solution class
 TEST_CASE("implemention detail 1")
 {
-    std::string input = "bab";
+    auto input = "bab";
     Solution sl;    
-
-    REQUIRE(1 == sl.longest_pal_radius(input, 1, 1));
+    
+    REQUIRE(2 == sl.longest_pal_radius(input, 1, 1));
 }
 
 TEST_CASE("implementation detail 2")
 {
-    std::string input = "cab";
+    auto input = "cab";
     Solution sl;    
-
-    REQUIRE(0 == sl.longest_pal_radius(input, 1, 1));
+    
+    REQUIRE(1 == sl.longest_pal_radius(input, 1, 1));
 }
 
 TEST_CASE("implementation detail 3")
 {
-    std::string input = "c";
+    auto input = "c";
     Solution sl;    
 
-    REQUIRE(0 == sl.longest_pal_radius(input, 0, 0));
+    REQUIRE(1 == sl.longest_pal_radius(input, 0, 0));
 }
 
 TEST_CASE("implementation detail 4")
@@ -54,7 +54,7 @@ TEST_CASE("implementation detail 4")
     std::string input = "allb";
     Solution sl;    
 
-    REQUIRE(0 == sl.longest_pal_radius(input, 1, 2));
+    REQUIRE(1 == sl.longest_pal_radius(input, 1, 2));
 }
 
 TEST_CASE("implementation detail 5")
@@ -62,7 +62,7 @@ TEST_CASE("implementation detail 5")
     std::string input = "alcb";
     Solution sl;    
 
-    REQUIRE(-1 == sl.longest_pal_radius(input, 1, 2));
+    REQUIRE(0 == sl.longest_pal_radius(input, 1, 2));
 }
 
 TEST_CASE("implementation detail 6")
@@ -70,7 +70,7 @@ TEST_CASE("implementation detail 6")
     std::string input = "babad";
     Solution sl;    
 
-    REQUIRE(1 == sl.longest_pal_radius(input, 2, 2));
+    REQUIRE(2 == sl.longest_pal_radius(input, 2, 2));
 }
 
 TEST_CASE("implementation detail 7")
@@ -78,7 +78,7 @@ TEST_CASE("implementation detail 7")
     std::string input = "amelklembdefebab";
     Solution sl;    
 
-    REQUIRE(3 == sl.longest_pal_radius(input, 4, 4));
+    REQUIRE(4 == sl.longest_pal_radius(input, 4, 4));
 }
 
 //
@@ -105,7 +105,7 @@ TEST_CASE("Example 3")
     std::string input = "ab";
     Solution sl;    
 
-    REQUIRE("a" == sl.longestPalindrome(input));
+    REQUIRE("b" == sl.longestPalindrome(input));
 }
 
 TEST_CASE("Example 4")
