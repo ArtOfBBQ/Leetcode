@@ -24,103 +24,125 @@
 
 ///////////
 // IMPLEMENTATION DETAIL TESTS...
-// Test the private method 'longest_pal_radius' of solution class
-TEST_CASE("implemention detail 1")
+// Test the private method 'get_iterator' of solution class
+
+TEST_CASE("when the palindrome is the entire uneven string")
 {
-    auto input = "bab";
-    Solution sl;    
-    
-    REQUIRE(2 == sl.longest_pal_radius(input, 1, 1));
-}
-
-TEST_CASE("implementation detail 2")
-{
-    auto input = "cab";
-    Solution sl;    
-    
-    REQUIRE(1 == sl.longest_pal_radius(input, 1, 1));
-}
-
-TEST_CASE("implementation detail 3")
-{
-    auto input = "c";
-    Solution sl;    
-
-    REQUIRE(1 == sl.longest_pal_radius(input, 0, 0));
-}
-
-TEST_CASE("implementation detail 4")
-{
-    std::string input = "allb";
-    Solution sl;    
-
-    REQUIRE(1 == sl.longest_pal_radius(input, 1, 2));
-}
-
-TEST_CASE("implementation detail 5")
-{
-    std::string input = "alcb";
-    Solution sl;    
-
-    REQUIRE(0 == sl.longest_pal_radius(input, 1, 2));
-}
-
-TEST_CASE("implementation detail 6")
-{
-    std::string input = "babad";
-    Solution sl;    
-
-    REQUIRE(2 == sl.longest_pal_radius(input, 2, 2));
-}
-
-TEST_CASE("implementation detail 7")
-{
-    std::string input = "amelklembdefebab";
-    Solution sl;    
-
-    REQUIRE(4 == sl.longest_pal_radius(input, 4, 4));
-}
-
-//
-///////////
-
-TEST_CASE("Example 1")
-{
-    std::string input = "babad";
+    std::string input = "ecbabce";
     Solution sl;
     
-    REQUIRE("bab" == sl.longestPalindrome(input));
+    REQUIRE("ecbabce" == sl.longestPalindrome(input));
 }
 
-TEST_CASE("Example 2")
+TEST_CASE("when the palindrome is the entire even string")
 {
-    std::string input = "cbbd";
-    Solution sl;    
+    std::string input = "abccba";
+    Solution sl;
+    
+    REQUIRE("abccba" == sl.longestPalindrome(input));
+}
 
+TEST_CASE("when all but the last character of uneven string is pal")
+{
+    std::string input = "abccbaz";
+    Solution sl;
+    
+    REQUIRE("abccba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the first character of uneven string is pal")
+{
+    std::string input = "zabccba";
+    Solution sl;
+    
+    REQUIRE("abccba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the last 2 chars of uneven string is pal")
+{
+    std::string input = "abcbazz";
+    Solution sl;
+    
+    REQUIRE("abcba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the first 2 chars of uneven string is pal")
+{
+    std::string input = "zzabcba";
+    Solution sl;
+    
+    REQUIRE("abcba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the last 3 chars of uneven string is pal")
+{
+    std::string input = "abbazzz";
+    Solution sl;
+    
+    REQUIRE("abba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the first 3 chars of uneven string is pal")
+{
+    std::string input = "zzzabba";
+    Solution sl;
+    
+    REQUIRE("abba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the last 4 chars of uneven string is pal")
+{
+    std::string input = "abazrqx";
+    Solution sl;
+    
+    REQUIRE("aba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the first 4 chars of uneven string is pal")
+{
+    std::string input = "zrqxaba";
+    Solution sl;
+    
+    REQUIRE("aba" == sl.longestPalindrome(input));
+}
+
+TEST_CASE("when all but the first 5 chars of uneven string is pal")
+{
+    std::string input = "zxqorbb";
+    Solution sl;
+    
     REQUIRE("bb" == sl.longestPalindrome(input));
 }
 
-TEST_CASE("Example 3")
+TEST_CASE("when all but the last 5 chars of uneven string is pal")
 {
-    std::string input = "ab";
-    Solution sl;    
+    std::string input = "bbzoqxr";
+    Solution sl;
+    
+    REQUIRE("bb" == sl.longestPalindrome(input));
+}
 
+TEST_CASE("when the longest palindrome is just a letter")
+{
+    std::string input = "bhzoqxr";
+    Solution sl;
+    
     REQUIRE("b" == sl.longestPalindrome(input));
 }
 
-TEST_CASE("Example 4")
+TEST_CASE("when the longest palindrome is buried")
 {
-    std::string input = "amelklembdefebab";
-    Solution sl;    
-
-    REQUIRE("melklem" == sl.longestPalindrome(input));
+    std::string input = "bhxqxxr";
+    Solution sl;
+    
+    REQUIRE("xqx" == sl.longestPalindrome(input));
 }
 
-TEST_CASE("Example 5")
+TEST_CASE("when the string is empty")
 {
-    std::string input = "dd";
-    Solution sl;    
-
-    REQUIRE("dd" == sl.longestPalindrome(input));
+    std::string input = "";
+    Solution sl;
+    
+    REQUIRE("" == sl.longestPalindrome(input));
 }
 
